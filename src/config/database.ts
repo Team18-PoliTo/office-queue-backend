@@ -1,11 +1,8 @@
 // TODO: Database configuration
 // SQLite for now, will migrate to PostgreSQL later
 
-const initDatabase = () => {
+const initDatabase = (): void => {
   // TODO: Initialize database and tables
 };
 
-module.exports = {
-  initDatabase
-};
-
+export { initDatabase };

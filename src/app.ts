@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
+import express, { Request, Response } from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
 
 const app = express();
 
@@ -11,11 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: Request, res: Response) => {
   res.json({ status: 'ok', message: 'Office Queue Management API is running' });
 });
 
 // TODO: Add routes
 
-module.exports = app;
-
+export default app;

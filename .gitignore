@@ -143,6 +143,7 @@ data/
 *.db
 *.sqlite
 *.sqlite3
+dist/
 
 # macOS
 .DS_Store
