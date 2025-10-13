@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import serviceRoutes from './routes/serviceRoutes';
+import ticketRoutes from "./routes/ticketRoutes";
 
 const app = express();
 
@@ -18,5 +19,6 @@ app.get('/api/health', (req: Request, res: Response) => {
 
 // Routes
 app.use('/api/services', serviceRoutes);
+app.use('/api', ticketRoutes);
 
 export default app;

@@ -10,6 +10,6 @@ const router = Router();
  * Body: { serviceId: number }
  * Response: { id, serviceName, timestamp, waitEstimateMin }
  */
-router.post("/Ticket", /* authMiddleware, */ postTicket);
+router.post("/ticket", /* authMiddleware, */ postTicket);
 
 export default router;
