@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ServiceDTO } from '../dtos/ServiceDTO';
+import { ServiceDTO } from '../models/dto/ServiceDTO';
 
 // Interface for dependency injection
 interface IServiceService {

@@ -1,7 +1,7 @@
 // Service Service - Business logic layer for services
 import { ServiceMapper } from "../mappers/ServiceMapper";
-import { ServiceDTO } from "../dtos/ServiceDTO";
-import ServiceDAO from "../daos/ServiceDAO";
+import { ServiceDTO } from "../models/dto/ServiceDTO";
+import ServiceDAO from "../models/dao/ServiceDAO";
 
 // Interface for dependency injection
 interface IServiceRepository {

@@ -1,5 +1,5 @@
-import ServiceDAO from "../daos/ServiceDAO";
-import { ServiceDTO } from "../dtos/ServiceDTO";
+import ServiceDAO from "../models/dao/ServiceDAO";
+import { ServiceDTO } from "../models/dto/ServiceDTO";
 
 export class ServiceMapper {
   static toDTO(serviceDAO: ServiceDAO): ServiceDTO {
