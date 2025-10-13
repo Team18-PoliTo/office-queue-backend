@@ -1,16 +1,20 @@
 // Service Repository - Abstraction layer for service data access
 import { AppDataSource } from "../config/database";
-import ServiceDAO from "../daos/ServiceDAO";
+import ServiceDAO from "../models/dao/ServiceDAO";
 
 interface IServiceRepository {
   findAll(): Promise<ServiceDAO[]>;
 }
 
-class ServiceRepository implements IServiceRepository {
+export class ServiceRepository implements IServiceRepository {
   private serviceRepository = AppDataSource.getRepository(ServiceDAO);
 
   async findAll(): Promise<ServiceDAO[]> {
     return await this.serviceRepository.find();
+  }
+
+  async findById(id: number): Promise<ServiceDAO | null> {
+    return await this.serviceRepository.findOne({ where: { id } });
   }
 }
 

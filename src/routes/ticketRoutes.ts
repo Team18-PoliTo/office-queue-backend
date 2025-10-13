@@ -1,9 +1,15 @@
-import { Router } from 'express';
+import { Router } from "express";
+import { postTicket } from "../controllers/ticketController";
+// import { authMiddleware } from "../middlewares/authMiddleware";
 
 const router = Router();
 
-// TODO: Import controller and middleware
-
-// TODO: Define routes for tickets
+/**
+ * POST /api/Ticket
+ * Creates a new ticket for the selected service.
+ * Body: { serviceId: number }
+ * Response: { id, serviceName, timestamp, waitEstimateMin }
+ */
+router.post("/Ticket", /* authMiddleware, */ postTicket);
 
 export default router;

@@ -4,7 +4,7 @@ import path from "path";
 import { readdirSync } from "fs";
 
 // this is needed, otherwise TypeORM can't find the entities
-const ENTITIES_PATH = path.resolve(__dirname, "../daos");
+const ENTITIES_PATH = path.resolve(__dirname, "../models/dao");
 
 // Dynamically import all entity files
 const entities = readdirSync(ENTITIES_PATH)

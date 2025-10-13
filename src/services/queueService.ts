@@ -1,6 +1,6 @@
 // Queue Service - In-memory queue management
 
-class QueueService {
+export class QueueService {
   // TODO: Add methods
 }
 

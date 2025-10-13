@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
 import CounterDAO from "./CounterDAO";
 
 @Entity("services")
-class ServiceDAO {
+export class ServiceDAO {
   @PrimaryGeneratedColumn({ type: "integer" })
   id: number;
 

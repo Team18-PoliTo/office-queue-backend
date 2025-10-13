@@ -1,3 +1,4 @@
+// @ts-ignore
 import { IsNumber, IsString, IsNotEmpty, IsPositive } from 'class-validator';
 
 export class ServiceDTO {
