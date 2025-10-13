@@ -1,15 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm";
 
-@Entity("tickets")
 export class TicketDAO {
-    @PrimaryGeneratedColumn({ type: "integer" })
-    id!: number;
-
-    @Column({ name: "service_name", nullable: false })
-    serviceName!: string;
-
-    @CreateDateColumn({ name: "timestamp", type: "datetime" })
-    timestamp!: Date;
+    //TODO return code later
 }
 
 export default TicketDAO;

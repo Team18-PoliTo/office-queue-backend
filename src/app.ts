@@ -19,6 +19,6 @@ app.get('/api/health', (req: Request, res: Response) => {
 
 // Routes
 app.use('/api/services', serviceRoutes);
-app.use('/api', ticketRoutes);
+app.use('/api/tickets', ticketRoutes);
 
 export default app;

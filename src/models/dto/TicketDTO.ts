@@ -1,15 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm";
+import {IsNotEmpty, IsNumber, IsPositive, IsString} from "class-validator";
 
-@Entity({ name: "tickets" })
-export class TicketDAO {
-    @PrimaryGeneratedColumn({ type: "integer" })
-    id!: number;
+export class TicketDTO {
 
-    @Column({ name: "service_name", nullable: false })
-    serviceName!: string;
-
-    @CreateDateColumn({ name: "timestamp", type: "datetime" })
-    timestamp!: Date;
+    //TODO return code later
 }
 
-export default TicketDAO;
+export default TicketDTO;
