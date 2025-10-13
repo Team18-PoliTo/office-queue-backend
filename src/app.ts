@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import serviceRoutes from './routes/serviceRoutes';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get('/api/health', (req: Request, res: Response) => {
   res.json({ status: 'ok', message: 'Office Queue Management API is running' });
 });
 
-// TODO: Add routes
+// Routes
+app.use('/api/services', serviceRoutes);
 
 export default app;
