@@ -9,7 +9,7 @@ class ServiceDAO {
   @Column({ nullable: false, unique: true })
   name: string;
 
-  @Column({ nullable: false })
+  @Column({ type: "float", nullable: false })
   avg_process_time: number;
 
   @ManyToMany(() => CounterDAO, (counter) => counter.services)
