@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import serviceRoutes from './routes/serviceRoutes';
 import ticketRoutes from "./routes/ticketRoutes";
+import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
 
@@ -20,5 +21,9 @@ app.get('/api/health', (req: Request, res: Response) => {
 // Routes
 app.use('/api/services', serviceRoutes);
 app.use('/api/tickets', ticketRoutes);
+
+
+//This must always be the last middleware added
+app.use(errorHandler);
 
 export default app;
