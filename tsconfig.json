@@ -17,5 +17,6 @@
     "types": ["node","jest"]
   },
   "include": ["src/**/*", "server.ts","test"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+  "typeRoots": ["./node_modules/@types", "./src/types"]
 }
