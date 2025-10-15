@@ -2,6 +2,7 @@ import express from "express";
 import request from "supertest";
 import ServiceController from "../../../src/controllers/serviceController";
 import ServiceService from "../../../src/services/serviceService";
+import { validateUserType, requireCustomer } from "../../../src/middleware/authMiddleware";
 
 const mockServiceRepository = {
   findAll: jest.fn().mockResolvedValue([
@@ -18,11 +19,12 @@ describe("Service Routes (Integration)", () => {
     const serviceController = new ServiceController(serviceService);
 
     app = express();
-    app.get("/api/services", serviceController.getAllServices.bind(serviceController));
+    app.use(express.json());
+    app.get("/api/services", validateUserType, requireCustomer, serviceController.getAllServices.bind(serviceController));
   });
 
   it("GET /services should return list of services", async () => {
-    const res = await request(app).get("/api/services");
+    const res = await request(app).get("/api/services").set("user-type", "customer");
     console.log(res.status, res.body);
 
     expect(res.status).toBe(200);

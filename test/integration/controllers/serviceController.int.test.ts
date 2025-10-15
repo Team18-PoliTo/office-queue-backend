@@ -2,6 +2,7 @@ import express from "express";
 import request from "supertest";
 import ServiceController from "../../../src/controllers/serviceController";
 import { ServiceDTO } from "../../../src/models/dto/ServiceDTO";
+import { validateUserType, requireCustomer } from "../../../src/middleware/authMiddleware";
 
 describe("ServiceController (Integration)", () => {
   let app: express.Express;
@@ -17,11 +18,11 @@ describe("ServiceController (Integration)", () => {
     const controller = new ServiceController(mockServiceService);
 
     app = express();
-    app.get("/api/services", controller.getAllServices.bind(controller));
+    app.get("/api/services", validateUserType, requireCustomer, controller.getAllServices.bind(controller));
   });
 
   it("should return all services", async () => {
-    const res = await request(app).get("/api/services");
+    const res = await request(app).get("/api/services").set("user-type", "customer");
 
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
@@ -35,9 +36,9 @@ describe("ServiceController (Integration)", () => {
     };
     const controller = new ServiceController(errorService);
     const errorApp = express();
-    errorApp.get("/api/services", controller.getAllServices.bind(controller));
+    errorApp.get("/api/services", validateUserType, requireCustomer, controller.getAllServices.bind(controller));
 
-    const res = await request(errorApp).get("/api/services");
+    const res = await request(errorApp).get("/api/services").set("user-type", "customer");
     expect(res.status).toBe(500); 
   });
 });
