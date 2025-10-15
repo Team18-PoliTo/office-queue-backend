@@ -4,7 +4,7 @@ import path from "path";
 import { readdirSync } from "fs";
 
 // this is needed, otherwise TypeORM can't find the entities
-const ENTITIES_PATH = path.resolve(__dirname, "../daos");
+const ENTITIES_PATH = path.resolve(__dirname, "../models/dao");
 
 // Dynamically import all entity files
 const entities = readdirSync(ENTITIES_PATH)
@@ -24,8 +24,8 @@ export const AppDataSource = new DataSource({
   database: path.resolve(__dirname, "../data/database.sqlite"),
   entities: entities,
   migrations: [MIGRATIONS_PATH],
-  synchronize: false, // use migrations instead
-  logging: true,
+  synchronize: true, // use migrations instead
+  logging: false,
 });
 
 // Initialize the database connection
