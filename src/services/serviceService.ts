@@ -1,7 +1,9 @@
-// Service Service - Business logic layer for services
+// src/services/serviceService.ts
+// Service Service – Business logic layer for services
 import { ServiceMapper } from "../mappers/ServiceMapper";
 import { ServiceDTO } from "../models/dto/ServiceDTO";
 import ServiceDAO from "../models/dao/ServiceDAO";
+import ServiceRepository from "../repositories/ServiceRepository";
 
 // Interface for dependency injection
 interface IServiceRepository {
@@ -9,7 +11,8 @@ interface IServiceRepository {
 }
 
 class ServiceService {
-  constructor(private serviceRepository: IServiceRepository) {}
+  // By default use real repository, but allow injection for testing or integration
+  constructor(private serviceRepository: IServiceRepository = new ServiceRepository()) {}
 
   async getAllServices(): Promise<ServiceDTO[]> {
     const serviceDAOs = await this.serviceRepository.findAll();
@@ -17,4 +20,7 @@ class ServiceService {
   }
 }
 
+// Export singleton for production use and class for testing/DI
+export const serviceService = new ServiceService();
 export default ServiceService;
+
