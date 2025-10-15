@@ -14,7 +14,7 @@ class CounterController {
   ): Promise<void> {
     try {
       const id = Number(req.params.id);
-      const counter = await this.counterService.getCounterFromId(id);
+      const counter = await this.counterService.getCounterById(id);
       if (!counter) {
         res.status(404).json({ message: "Counter not found" });
         return;
@@ -29,7 +29,7 @@ class CounterController {
   async getNextCustomer(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const id = Number(req.params.id);
-      const counter = await this.counterService.getCounterFromId(id);
+      const counter = await this.counterService.getCounterById(id);
 
       if (!counter) {
         res.status(404).json({ message: "Counter not found" });
