@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
-//import CounterDAO from "./CounterDAO";
 
 @Entity("services")
  class ServiceDAO {
@@ -12,8 +11,6 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
   @Column({ type: "float", nullable: false })
   avg_process_time: number;
 
-  /*@ManyToMany(() => CounterDAO, (counter) => counter.services)
-  counters: CounterDAO[];*/
 }
 
 export default ServiceDAO;

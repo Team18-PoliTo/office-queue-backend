@@ -15,7 +15,7 @@ class CounterDAO {
   @Column({ nullable: false, unique: true })
   name: string;
 
-  @ManyToMany(() => ServiceDAO, (service) => service.counters, { eager: true })
+  @ManyToMany(() => ServiceDAO, { eager: true })
   @JoinTable({
     name: "counters_services",
     joinColumn: {
