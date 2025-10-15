@@ -2,13 +2,7 @@
 import { queueService } from "../services/queueService";
 import { ServiceRepository } from "../repositories/ServiceRepository";
 import { NotFoundError } from "../models/errors/NotFoundError";
-
-export type TicketDTO = {
-    id: number;
-    serviceName: string;
-    timestamp: string;
-    waitEstimateMin: number | null;
-};
+import { TicketDTO } from "../models/dto/TicketDTO";
 
 class TicketService {
     private serviceRepo = new ServiceRepository();
@@ -25,8 +19,7 @@ class TicketService {
         return {
             id: t.id,
             serviceName: t.serviceName,
-            timestamp: t.timestamp.toISOString(),
-            waitEstimateMin: null,
+            timestamp: t.timestamp.toISOString()
         };
     }
 }
