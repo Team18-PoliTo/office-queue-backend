@@ -1,6 +1,7 @@
 
 import { queueService } from "../services/queueService";
 import { ServiceRepository } from "../repositories/ServiceRepository";
+import { NotFoundError } from "../models/errors/NotFoundError";
 
 export type TicketDTO = {
     id: number;
@@ -15,8 +16,7 @@ class TicketService {
     async createForService(serviceId: number): Promise<TicketDTO> {
         const service = await this.serviceRepo.findById(serviceId);
         if (!service) {
-            const err: any = new Error("Service not found");
-            err.status = 404;
+            const err: any = new NotFoundError("Service not found");
             throw err;
         }
 

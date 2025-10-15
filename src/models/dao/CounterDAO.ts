@@ -15,8 +15,18 @@ class CounterDAO {
   @Column({ nullable: false, unique: true })
   name: string;
 
-  @ManyToMany(() => ServiceDAO)
-  @JoinTable() // Owning side of the relationship
+  @ManyToMany(() => ServiceDAO, (service) => service.counters, { eager: true })
+  @JoinTable({
+    name: "counters_services",
+    joinColumn: {
+      name: "counterId",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "serviceId",
+      referencedColumnName: "id",
+    },
+  }) // Owning side of the relationship - explicit table/columns to match migration
   services: ServiceDAO[];
 }
 
