@@ -6,7 +6,7 @@ import { NotFoundError } from "../models/errors/NotFoundError";
 export type TicketDTO = {
     id: number;
     serviceName: string;
-    timestamp: string;          // ISO-строка
+    timestamp: string;
     waitEstimateMin: number | null;
 };
 
@@ -26,7 +26,7 @@ class TicketService {
             id: t.id,
             serviceName: t.serviceName,
             timestamp: t.timestamp.toISOString(),
-            waitEstimateMin: null, // заполни позже своей логикой ожидания
+            waitEstimateMin: null,
         };
     }
 }
