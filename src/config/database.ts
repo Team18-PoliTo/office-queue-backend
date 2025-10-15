@@ -26,7 +26,7 @@ export const AppDataSource = new DataSource({
   migrations: [MIGRATIONS_PATH],
   //todo there where problem with creating new entity in db
   synchronize: true, // use migrations instead
-  logging: true,
+  logging: false,
 });
 
 // Initialize the database connection
