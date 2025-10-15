@@ -1,6 +1,6 @@
 import express from "express";
 import request from "supertest";
-import { TicketDTO } from "../../../src/services/ticketService";
+import { TicketDTO } from "../../../src/models/dto/TicketDTO";
 import { validateUserType, requireCustomer } from "../../../src/middleware/authMiddleware";
 
 describe("TicketController (Integration)", () => {

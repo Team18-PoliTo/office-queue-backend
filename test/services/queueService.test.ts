@@ -26,9 +26,9 @@ describe('QueueService', () => {
 
     describe('getNextTicket - longest queue first', () => {
         const mockServices = [
-            { name: 'A', avg_process_time: 5 },
-            { name: 'B', avg_process_time: 3 },
-            { name: 'C', avg_process_time: 7 }
+            { id:4, name: 'A', avg_process_time: 5 },
+            { id:2, name: 'B', avg_process_time: 3 },
+            { id:1, name: 'C', avg_process_time: 7 }
         ];
 
         it('should return null when empty services array', () => {
@@ -71,7 +71,7 @@ describe('QueueService', () => {
             const ticket1 = queueService.create('A');
             const ticket2 = queueService.create('A');
 
-            const services = [{ name: 'A', avg_process_time: 5 }];
+            const services = [{ id:2, name: 'A', avg_process_time: 5 }];
 
             const served1 = queueService.getNextTicket(services);
             const served2 = queueService.getNextTicket(services);

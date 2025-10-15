@@ -31,8 +31,7 @@ describe("TicketController (Integration) - using real controller", () => {
     jest.spyOn(ticketServiceModule.ticketService, "createForService").mockResolvedValue({
       id: 1,
       serviceName: "A",
-      timestamp: new Date().toISOString(),
-      waitEstimateMin: null,
+      timestamp: new Date().toISOString()
     });
 
     const res = await request(app).post("/api/tickets").set("user-type", "customer").send({ serviceId: 1 });

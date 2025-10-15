@@ -1,8 +1,14 @@
 import {IsNotEmpty, IsNumber, IsPositive, IsString} from "class-validator";
 
 export class TicketDTO {
+    @IsNumber()
+    id: number;
 
-    //TODO return code later
+    @IsString()
+    @IsNotEmpty()
+    serviceName: string;
+
+    timestamp: string;
 }
 
 export default TicketDTO;
