@@ -4,6 +4,7 @@ import CounterDAO from "../models/dao/CounterDAO";
 
 interface ICounterRepository {
   // TODO: Define repository interface
+  findById(id:Number):Promise<CounterDAO | null> 
 }
 
 class CounterRepository implements ICounterRepository {
