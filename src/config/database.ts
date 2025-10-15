@@ -24,7 +24,6 @@ export const AppDataSource = new DataSource({
   database: path.resolve(__dirname, "../data/database.sqlite"),
   entities: entities,
   migrations: [MIGRATIONS_PATH],
-  //todo there where problem with creating new entity in db
   synchronize: true, // use migrations instead
   logging: false,
 });

@@ -3,14 +3,14 @@ import { queueService } from "./queueService";
 import { NotFoundError } from "../models/errors/NotFoundError";
 import { TicketDTO } from "../models/dto/TicketDTO";
 
-interface IQueueService {
+interface ITicketService {
     create(serviceName: string): { id: number; serviceName: string; timestamp: Date };
 }
 
 class TicketService {
     constructor(
         private serviceRepo: ServiceRepository = new ServiceRepository(),
-        private q: IQueueService = queueService
+        private q: ITicketService = queueService
     ) {}
 
     async createForService(serviceId: number): Promise<TicketDTO> {
