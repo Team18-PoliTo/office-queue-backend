@@ -8,7 +8,7 @@ const ENTITIES_PATH = path.resolve(__dirname, "../models/dao");
 
 // Dynamically import all entity files
 const entities = readdirSync(ENTITIES_PATH)
-  .filter((file) => file.endsWith(".ts") || file.endsWith(".js"))
+  .filter((file) => file.endsWith(".ts") || file.endsWith(".ts"))
   .map((file) => {
     const required = require(path.join(ENTITIES_PATH, file));
     // Assuming each file exports a single entity class as default
