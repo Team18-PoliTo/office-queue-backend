@@ -2,6 +2,7 @@ import { Router } from 'express';
 import CounterRepository from '../repositories/CounterRepository';
 import CounterService from '../services/counterService';
 import CounterController from '../controllers/counterController';
+import { requireOfficer } from '../middleware/authMiddleware';
 
 const router = Router();
 
@@ -10,9 +11,10 @@ const counterRepository = new CounterRepository();
 const counterService = new CounterService(counterRepository);
 const counterController = new CounterController(counterService);
 
-// GET /services - Get all services
-router.get('/:id', counterController.getCounterById.bind(counterController));
-router.get('/:id/next', counterController.getNextCustomer.bind(counterController));
+// GET /counter/:id - Get counter by ID (officer only)
+router.get('/:id', requireOfficer, counterController.getCounterById.bind(counterController));
 
+// GET /counter/:id/next - Call next customer (officer only)
+router.get('/:id/next', requireOfficer, counterController.getNextCustomer.bind(counterController));
 
 export default router;

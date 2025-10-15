@@ -16,6 +16,11 @@ module.exports = {
   moduleFileExtensions: ["ts", "js", "json"],
   clearMocks: true,
   setupFilesAfterEnv: ["<rootDir>/test/setup.ts"],
+  collectCoverageFrom: [
+    "src/**/*.ts",
+    "!src/data/migrations/**",  // Exclude migrations from coverage
+    "!src/**/*.d.ts",            // Exclude type definitions
+  ],
   globals: {
     "ts-jest": {
       isolatedModules: true,
