@@ -15,7 +15,7 @@ class CounterDAO {
   @Column({ nullable: false, unique: true })
   name: string;
 
-  @ManyToMany(() => ServiceDAO, (service) => service.counters)
+  @ManyToMany(() => ServiceDAO)
   @JoinTable() // Owning side of the relationship
   services: ServiceDAO[];
 }
