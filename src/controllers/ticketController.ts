@@ -17,12 +17,15 @@ export async function postTicket(req: Request, res: Response, next: NextFunction
         return res.status(201).json(result);
 
     } catch (e: any) {
+        /* should be handled by global error handler
+        
         // Handle "Service not found" case
         if (e?.status === 404) {
             return res.status(404).json({ message: e.message });
         }
 
         // Pass other errors to the global error handler
+        */
         next(e);
     }
 }
