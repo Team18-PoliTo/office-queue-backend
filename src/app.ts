@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import serviceRoutes from './routes/serviceRoutes';
 import ticketRoutes from "./routes/ticketRoutes";
 import { validateUserType } from './middleware/authMiddleware';
+import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
 
@@ -24,5 +25,9 @@ app.use('/api', validateUserType);
 // Routes
 app.use('/api/services', serviceRoutes);
 app.use('/api/tickets', ticketRoutes);
+
+
+//This must always be the last middleware added
+app.use(errorHandler);
 
 export default app;

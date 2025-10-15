@@ -1,9 +1,15 @@
-import { Request, Response, NextFunction } from 'express';
+import { ErrorDTO, ErrorDTOToJSON } from "../models/dto/ErrorDTO";
+import { createAppError } from "../services/errorService";
+import { Request, Response, NextFunction } from "express";
 
-// TODO: Implement global error handling middleware
+export function errorHandler(
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  let modelError: ErrorDTO = createAppError(err);
+  console.error("Error caught by middleware:", err);
 
-const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
-  // TODO: Handle errors
-};
-
-export default errorHandler;
+  res.status(modelError.code).json(ErrorDTOToJSON(modelError));
+}

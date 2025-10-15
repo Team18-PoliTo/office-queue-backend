@@ -1,11 +1,12 @@
 
 import { queueService } from "../services/queueService";
 import { ServiceRepository } from "../repositories/ServiceRepository";
+import { NotFoundError } from "../models/errors/NotFoundError";
 
 export type TicketDTO = {
     id: number;
     serviceName: string;
-    timestamp: string;          // ISO-строка
+    timestamp: string;
     waitEstimateMin: number | null;
 };
 
@@ -15,8 +16,7 @@ class TicketService {
     async createForService(serviceId: number): Promise<TicketDTO> {
         const service = await this.serviceRepo.findById(serviceId);
         if (!service) {
-            const err: any = new Error("Service not found");
-            err.status = 404;
+            const err: any = new NotFoundError("Service not found");
             throw err;
         }
 
@@ -26,7 +26,7 @@ class TicketService {
             id: t.id,
             serviceName: t.serviceName,
             timestamp: t.timestamp.toISOString(),
-            waitEstimateMin: null, // заполни позже своей логикой ожидания
+            waitEstimateMin: null,
         };
     }
 }
