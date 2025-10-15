@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import serviceRoutes from './routes/serviceRoutes';
 import ticketRoutes from "./routes/ticketRoutes";
+import counterRoutes from "./routes/counterRoutes";
 import { validateUserType } from './middleware/authMiddleware';
 import { errorHandler } from './middleware/errorHandler';
 
@@ -25,6 +26,7 @@ app.use('/api', validateUserType);
 // Routes
 app.use('/api/services', serviceRoutes);
 app.use('/api/tickets', ticketRoutes);
+app.use('/api/counter', counterRoutes);
 
 
 //This must always be the last middleware added
