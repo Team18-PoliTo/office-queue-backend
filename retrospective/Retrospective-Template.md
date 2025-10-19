@@ -81,17 +81,25 @@ Index:
 
 ## ASSESSMENT
 
+
 - What did go wrong in the sprint?
+We completed the task division later than expected, which led us to start working on some uncategorized tasks just for managing to cover the user stories that we choosed.
+Also we added unit and integration tests but didn’t include separate end-to-end tests, as we overlooked this detail.
 
 - What caused your errors in estimation (if any)?
+Some tasks turned out to be much easier than we initially expected.
+Additionally, one team member joined later and needed extra time to understand the previous work and get fully involved in the development process, and as we delayed with task separetion the estimation was not so accurate.
 
 - What lessons did you learn (both positive and negative) in this sprint?
+During the first sprint, we learned how to plan and collaborate more effectively as a team.
+Also that the accurate planning taking more time and effort that we expected.
 
 - Which improvement goals set in the previous retrospective were you able to achieve?
 - Which ones you were not able to achieve? Why?
 
 - Improvement goals for the next sprint and how to achieve them (technical tasks, team coordination, etc.)
-
-  > Propose one or two
+Create separate task for bug fixing.
+Try to close tasks faster (move code from dev to main earlier) so the YouTrack burndown chart looks more accurate.
 
 - One thing you are proud of as a Team!!
+We are proud that we could easily rely on each other thanks to being well-organized as a team.
